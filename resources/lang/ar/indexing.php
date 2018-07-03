@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'teacher' => 'المدرس',
+    'teachers' => 'المدرسيين',
+    'school' => 'المدرسة',
+    'schools' => 'المدارس',
+    'student' => 'الطالب',
+    'students' => 'الطلاب',
+    'settings' => 'الإعدادات',
+    'schools_are_available' => 'المدارس المتاحة',
+    'available_students' => 'الطلاب المتاحين',
+    'teachers_available' => 'المدرسين المتاحين',
+    'name' => 'الاسم',
+    'section' => 'الفرع',
+    'standards' => 'المعايير',
+    'description' => 'الوصف',
+    'standards' => 'المعايير',
+    'standard' => 'المعيار',
+    'standard_application_form' => 'نموذج معيار',
+    'new_standard' => 'معيار جديد',
+    'sub_subjects' => 'المواد الفرعية',
+    'available_invoices' => 'الفواتير المتاحة',
+    'trans_num' => 'رقم الحوالة',
+    'trans_date' => 'تاريخ الحوالة',
+    'active_date' => 'متاحة حتى ',
+    'status' => 'الحالة',
+];

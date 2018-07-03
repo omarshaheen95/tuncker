@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'plan' => 'Plan',
+    'annual' => 'Annual',
+    'start_up' => 'Start up your subscription today',
+    'start_up_p' => 'Start your annual subscription and enjoy the benefits outlined below. We offer a 30 day money back guarantee without any questions !!',
+    'start_now' => 'Start Now',
+    'feature_1' => 'Annual subscription 365 days',
+    'feature_2' => 'Unlimited number of teachers',
+    'feature_3' => 'Unlimited number of students',
+    'feature_4' => 'Miscellaneous subjects',
+    'feature_5' => 'Comprehensive standards',
+    'payment_mechanism' => 'Payment mechanism',
+    'complete_payment_mechanism' => 'When applying for a subscription, you must pay the above account amount in account 00154105423151 and attach the transfer number in the application form',
+    'new_payment' => 'New Payment',
+    'payment_note' => 'The system will be available to you for a full academic year from the time of acceptance of the subscription by the administration',
+    'NORV' => 'Bank transfer number',
+    'submit' => 'Submit',
+    'unpaid' => 'unpaid',
+    'Driven' => 'Driven',
+    'effective' => 'effective',
+    'not_effective' => 'not effective',
+    'expired' => 'expired',
+    'no_delete_invoice' => 'This invoice can not be deleted',
+    '' => '',
+    '' => '',
+    '' => '',
+
+];

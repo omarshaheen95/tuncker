@@ -1,0 +1,38 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/29ltbukraregular.otf);
+}
+
+@font-face {
+    font-family: myFirstFont1;
+    src: url(../fonts/29ltbukraregular.otf);
+}
+
+body {
+    font-family: myFirstFont1 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: myFirstFont;
+}
+
+.brand-img {
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/spir.png);
+    background-position: 0px 0px;
+}
+
+.page-header.navbar .page-logo>.logo-image,
+.page-header.navbar .page-logo>a {
+    text-align: center
+}
+
+.brand-img-login {
+    background-position: 0px 0px;
+}

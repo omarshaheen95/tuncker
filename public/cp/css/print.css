@@ -1,0 +1,152 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #D3D3D3
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.red-font {
+    color: #D91E18 !important;
+}
+
+.D91E18 {
+    color: #D91E18 !important;
+}
+
+.F3C200 {
+    color: #F3C200 !important;
+}
+
+.m26C281 {
+    color: #26C281 !important;
+}
+
+ul {
+    list-style: none!important;
+    padding: 0!important;
+    margin: 0!important;
+}
+
+li {
+    padding-left: 3em!important;
+    text-indent: -.7em!important;
+}
+
+li::before {
+    content: "• "!important;
+    color: red!important;
+    /* or whatever color you prefer */
+}
+
+.page {
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    margin: 10mm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 5px;
+    background: #fff;
+    background-image: url(pattern.png);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.subpage {
+    padding: 1cm;
+    border: 1px #333 solid;
+    border-left: 5px #333 solid;
+    height: 257mm;
+    outline: 2cm #fff solid;
+    background-image: url(Logo21.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.subpage-w {
+    padding: 1cm;
+    border: 1px #333 solid;
+    border-left: 5px #333 solid;
+    height: 257mm;
+    outline: 2cm #fff solid;
+    background: transparent;
+}
+
+.logo {
+    position: absolute;
+    top: 25px;
+    left: 75px;
+}
+
+.numder-page {
+    position: absolute;
+    bottom: 95px;
+    right: 95px;
+    text-align: right;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    html,
+    body {
+        width: 210mm;
+        height: 297mm;
+    }
+    .red-font {
+        color: #D91E18 !important;
+    }
+    .D91E18 {
+        color: #D91E18 !important;
+    }
+    .F3C200 {
+        color: #F3C200 !important;
+    }
+    .m26C281 {
+        color: #26C281 !important;
+    }
+    ul {
+        list-style: none!important;
+        padding: 0!important;
+        margin: 0!important;
+    }
+    li {
+        padding-left: 3em!important;
+        text-indent: -.7em!important;
+    }
+    li::before {
+        content: "• "!important;
+        color: red!important;
+        /* or whatever color you prefer */
+    }
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: #fff !important;
+        background-image: url(pattern.png) !important;
+        page-break-after: always;
+    }
+    .subpage {
+        background-image: url(Logo21.png) !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    .subpage-w {
+        background: transparent !important;
+    }
+    table {
+        background: transparent
+    }
+}
