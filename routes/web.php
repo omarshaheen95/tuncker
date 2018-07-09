@@ -17,6 +17,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale() ], function () {
   Route::get('/', function () {
     return view('welcome');
   });
+
+  Route::get('/about-us', function () {
+    return view('about_us');
+  });
 });
 Route::group(['prefix' => LaravelLocalization::setLocale().'/admin'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');

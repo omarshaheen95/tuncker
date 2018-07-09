@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Mail;
+use App\Mail\NewSubscription;
 
 class RegisterController extends Controller
 {
@@ -71,6 +73,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $active_to = Carbon::now()->addDays(5);
+        Mail::to($data['email'])->send(new NewSubscription);
         return School::create([
             'ar_name' => $data['ar_name'],
             'en_name' => $data['en_name'],

@@ -11,6 +11,8 @@ use App\Subject;
 use App\Standard;
 use App\StudentStandard;
 use Lang;
+use File;
+use Excel;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -108,6 +110,60 @@ class StudentController extends Controller
             }
         }
         return redirect()->back()->with('message', Lang::get('error.create-data'))->with('m-class', 'primary');
+    }
+
+    public function import(Request $request)
+    {
+        $guard = $this->getGuard();
+        $path = '/'.$guard['role'].'/';
+        $user = $guard['user'];
+
+        //validate the xls file
+        $this->validate($request, array(
+            'file'      => 'required'
+        ));
+ 
+        if($request->hasFile('file')){
+            $extension = File::extension($request->file->getClientOriginalName());
+            if ($extension == "xlsx" || $extension == "xls" || $extension == "csv") {
+ 
+                $path = $request->file->getRealPath();
+                $data = Excel::load($path, function($reader) {
+                })->get();
+                if(!empty($data) && $data->count()){
+ 
+                    foreach ($data as $key => $value) {
+                        $insert[] = [
+                        'ar_name' => $value->ar_name,
+                        'en_name' => $value->en_name,
+                        'school_id' => $user->school->id,
+                        'teacher_id' => $user->id,
+                        'dob' => $value->dob,
+                        'nationality' => $value->nationality,
+                        'year_lang' => $value->year_lang,
+                        'image' => 'default.png',
+                        ];
+                    }
+ 
+                    if(!empty($insert)){
+                        //dd($insert);
+                        foreach($insert as $row){
+                            $insertData = Student::create($row);
+                        }
+                        if ($insertData) {
+                            return redirect()->back()->with('message', Lang::get('error.imported'))->with('m-class', 'primary');
+                        }else {                        
+                            return redirect()->back()->with('message', Lang::get('error.unimported'))->with('m-class', 'danger');
+                        }
+                    }
+                }
+ 
+                return back();
+ 
+            }else {
+                return redirect()->back()->with('message', 'File is a '.$extension.' file.!! Please upload a valid xls/csv file..!!')->with('m-class', 'danger');
+            }
+        }
     }
 
     public function show($id)

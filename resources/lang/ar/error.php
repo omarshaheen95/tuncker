@@ -62,7 +62,9 @@ return [
     'more_teacher' => 'لا يمكن تجاوز عدد أكثر من 1 مدرس في الحساب التجريبي',
     'complete-activation' => 'تم تعديل الصلاحية بنجاح',
     'report' => 'تقرير',
-    'student_report' => 'تقرير طالب'
+    'student_report' => 'تقرير طالب',
+    'imported' => 'تم إستيراد البيانات بنجاح',
+    'unimported' => 'خطأ في إستيراد البيانات',
 
 
 

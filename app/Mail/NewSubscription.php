@@ -28,6 +28,11 @@ class NewSubscription extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $address = 'administration@arabic-uae.com';
+        $name = 'A.B.T';
+        $subject = 'عملية إشتراك تجريببية في برنامج التراكر';
+        return $this->view('emails.trial_account')
+                ->from('administration@arabic-uae.com', $name)
+                ->subject($subject);
     }
 }

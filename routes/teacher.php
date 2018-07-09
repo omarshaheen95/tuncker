@@ -7,7 +7,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale().'/teacher'], function
         $users[] = Auth::guard('school')->user();
     
         //dd($users);
-    
+        //dd(Auth::user()->school);
         return view('teacher.home');
     })->name('home');
     Route::get('/profile', 'SettingController@profile');
@@ -37,6 +37,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale().'/teacher'], function
     Route::get('/student/{id}/report', 'StudentController@report');
 
     Route::get('/student/report/{id}', 'StudentController@prepare_report');
+    Route::post('/file-students', 'StudentController@import');
 
   });
 

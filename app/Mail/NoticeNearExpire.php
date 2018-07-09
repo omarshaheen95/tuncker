@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ExpiredSubscription extends Mailable
+class NoticeNearExpire extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,8 +30,8 @@ class ExpiredSubscription extends Mailable
     {
         $address = 'administration@arabic-uae.com';
         $name = 'A.B.T';
-        $subject = 'إشعار  إنتهاء صلاحية الحساب';
-        return $this->view('emails.expire_account')
+        $subject = 'إشعار إقتراب إ،تهاء صلاحية الحساب';
+        return $this->view('emails.near_expire')
                 ->from('administration@arabic-uae.com', $name)
                 ->subject($subject);
     }

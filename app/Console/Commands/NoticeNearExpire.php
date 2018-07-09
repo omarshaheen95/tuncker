@@ -3,6 +3,10 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Carbon\Carbon;
+use App\School;
+use Mail;
+use App\Mail\NoticeNearExpire as NoticeNearExpireAccount;
 
 class NoticeNearExpire extends Command
 {
@@ -11,14 +15,14 @@ class NoticeNearExpire extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'NoticeNearExpire:notice_near_expire_account';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'notice near expire account';
 
     /**
      * Create a new command instance.
@@ -37,6 +41,10 @@ class NoticeNearExpire extends Command
      */
     public function handle()
     {
-        //
+        $date = Carbon::now()->addDays(7)->format('Y-m-d');
+        $schools = School::where('active_to',$date)->get();
+        foreach($schools as $school){
+            Mail::to($school->email)->send(new NoticeNearExpireAccount);
+       }
     }
 }

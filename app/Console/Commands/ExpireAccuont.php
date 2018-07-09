@@ -3,6 +3,11 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use DB;
+use Carbon\Carbon;
+use App\School;
+use Mail;
+use App\Mail\ExpiredSubscription;
 
 class ExpireAccuont extends Command
 {
@@ -11,14 +16,14 @@ class ExpireAccuont extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'ExpireAccuont:expireAccounts';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'disable expire accounts';
 
     /**
      * Create a new command instance.
@@ -37,6 +42,13 @@ class ExpireAccuont extends Command
      */
     public function handle()
     {
-        //
+        $schools = School::where('active_to',date('Y-m-d'))->get();
+        foreach($schools as $school){
+            $teachers = Teacher::where('school_id',$school->id)->get();
+            foreach($teachers as $teacher){
+                $teacher->update(['active' => 0]);
+            }
+            Mail::to($school->email)->send(new ExpiredSubscription);
+        }
     }
 }

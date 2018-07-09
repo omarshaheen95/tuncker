@@ -61,6 +61,8 @@ return [
     'expire' => 'Expire',
     'complete-activation' => 'compleate activation successfully',
     'report' => 'Report',
-    'student_report' => 'Student Report'
+    'student_report' => 'Student Report',
+    'imported' => 'Your Data has successfully imported',
+    'unimported' => 'Error inserting the data..',
     
 ];

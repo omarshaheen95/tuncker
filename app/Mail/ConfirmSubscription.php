@@ -28,6 +28,11 @@ class ConfirmSubscription extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $address = 'administration@arabic-uae.com';
+        $name = 'A.B.T';
+        $subject = 'تم تأكيد عملية الإشتراك في برنامج التراكر';
+        return $this->view('emails.confirm_account')
+                ->from('administration@arabic-uae.com', $name)
+                ->subject($subject);
     }
 }

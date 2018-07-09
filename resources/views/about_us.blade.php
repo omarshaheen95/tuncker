@@ -39,20 +39,18 @@
     rtl
 @endif">
           <div class="row w-100">
-            <div class="col-lg-5 justify-content-center mx-auto">
+            <div class="col-lg-8 justify-content-center mx-auto">
               <div class="auth-form-transparent text-left p-5 text-center">
-                <a href="/{{ $lang }}"><img width="100%" src="{{ asset('cp/images/logo_report_full.png') }}" alt="profile" class=""></a>
+                <a href="/{{ $lang }}"><img width="60%" src="{{ asset('cp/images/logo_report_full.png') }}" alt="profile" class=""></a>
                   
-                  <div class="mt-5">
-                    <a class="btn btn-block btn-success btn-lg font-weight-medium" style=" bold;font-size: 20px;" href="/{{ $lang }}/school/login"><i class="fa fa-institution"></i> {{ trans('main.school_login') }}</a>
+                  <div class="mt-12">
+                    <p ></i> {{ trans('indexing.about_us') }}</p>
                   </div>
                   
 
-                  <div class="mt-5">
-                    <a class="btn btn-block btn-success btn-lg font-weight-medium" style=" bold;font-size: 20px;" href="/{{ $lang }}/teacher/login"> <i class="fa fa-user-o"></i> {{ trans('main.teacher_login') }}</a>
-                  </div>
+                  
                   <div class="mt-3 text-center">
-                    <a href="/{{ $lang }}/about-us" class="auth-link text-white" style="font-weight:  bold;font-size: 20px;">{{ trans('main.about_tracker') }}</a>
+                    <a href="/{{ $lang }}" class="auth-link text-white" style="font-weight:  bold;font-size: 20px;">{{ trans('main.home') }}</a>
                   </div>
                   <div class="mt-3 text-center">
                     <p class="text-white">Copyright &copy; 2018  All rights reserved.</p>

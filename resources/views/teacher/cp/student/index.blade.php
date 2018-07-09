@@ -19,7 +19,7 @@
 
 <div class="card">
             <div class="card-body">
-              <h4 class="card-title">{{ trans('available_students') }}</h4>
+              <h4 class="card-title">{{ trans('indexing.available_students') }} <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#add_file">{{ trans('indexing.add_excel') }}</button> </h4>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
@@ -54,7 +54,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <form action="/{{ $lang }}/admin/delete-student/{{ $student->id }}" method="POST">
+                                <form action="/{{ $lang }}/teacher/delete-student/{{ $student->id }}" method="POST">
                                 <div class="modal-body">
                                 
                                 {{ csrf_field() }}
@@ -79,6 +79,30 @@
               </div>
             </div>
           </div>
+          <div class="modal fade" id="add_file" tabindex="-1" role="dialog" aria-labelledby="add_file" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel-4">{{ trans('indexing.add_excel') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <form action="/{{ $lang }}/teacher/file-students" enctype="multipart/form-data" method="POST">
+                    <div class="modal-body">
+                    
+                    {{ csrf_field() }}
+                        
+                    <input type="file" name="file" class="form-control" />
+                    </div>
+                    <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">{{ trans('error.add') }}</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">{{ trans('error.cancel') }}</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
         
 @endsection
 

@@ -9,6 +9,8 @@ use Lang;
 use App\School;
 use App\Teacher;
 use App\Student;
+use Mail;
+use App\Mail\ConfirmSubscription;
 
 class SettingController extends Controller
 {
@@ -261,6 +263,9 @@ class SettingController extends Controller
                 $teacher->update(['active' => 1]);
             }
             
+        }
+        if($data['active'] == 2){
+            Mail::to($school->email)->send(new ConfirmSubscription);
         }
         $school->update([
             'active' => $data['active'],
